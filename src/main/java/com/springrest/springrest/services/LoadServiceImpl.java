@@ -34,13 +34,15 @@ public class LoadServiceImpl implements LoadService {
     Optional<Load> result = loadDao.findById(loadId);
     if (result.isPresent()) {
       Load existingLoad = result.get();
+
+      existingLoad.setLoadingPoint(updatedLoad.getLoadingPoint());
       existingLoad.setUnloadingPoint(updatedLoad.getUnloadingPoint());
       existingLoad.setProductType(updatedLoad.getProductType());
       existingLoad.setTruckType(updatedLoad.getTruckType());
       existingLoad.setNoOfTrucks(updatedLoad.getNoOfTrucks());
       existingLoad.setWeight(updatedLoad.getWeight());
       existingLoad.setComment(updatedLoad.getComment());
-      existingLoad.setShipperId(updatedLoad.getShipperId());
+      // existingLoad.setShipperId(updatedLoad.getShipperId());
       existingLoad.setDate(updatedLoad.getDate());
 
       loadDao.save(existingLoad);

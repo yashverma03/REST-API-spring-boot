@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 public class Load {
   @Id
   private long loadId;
+  private String loadingPoint;
   private String unloadingPoint;
   private String productType;
   private String truckType;
@@ -17,9 +18,11 @@ public class Load {
   private String date;
 
   // Parameterized constructor
-  public Load(long loadId, long shipperId, String unloadingPoint, String productType, String truckType, int noOfTrucks,
-      int weight, String comment, String date) {
+  public Load(long loadId, String loadingPoint, String unloadingPoint, String productType, String truckType,
+      int noOfTrucks,
+      int weight, String comment, long shipperId, String date) {
     this.loadId = loadId;
+    this.loadingPoint = loadingPoint;
     this.unloadingPoint = unloadingPoint;
     this.productType = productType;
     this.truckType = truckType;
@@ -37,6 +40,10 @@ public class Load {
   // Getter
   public long getLoadId() {
     return loadId;
+  }
+
+  public String getLoadingPoint() {
+    return loadingPoint;
   }
 
   public String getUnloadingPoint() {
@@ -72,6 +79,10 @@ public class Load {
   }
 
   // Setter
+  public void setLoadingPoint(String loadingPoint) {
+    this.loadingPoint = loadingPoint;
+  }
+
   public void setUnloadingPoint(String unloadingPoint) {
     this.unloadingPoint = unloadingPoint;
   }
@@ -110,6 +121,7 @@ public class Load {
     return "Load{" +
         "loadId=" + loadId +
         ", shipperId=" + shipperId +
+        ", loadingPoint='" + loadingPoint + '\'' +
         ", unloadingPoint='" + unloadingPoint + '\'' +
         ", productType='" + productType + '\'' +
         ", truckType='" + truckType + '\'' +

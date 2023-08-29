@@ -20,7 +20,7 @@ public class LoadController {
   @Autowired
   private LoadService loadService;
 
-  @GetMapping("/load")
+  @GetMapping("/loads")
   public ResponseEntity<List<Load>> getLoads() {
     try {
       List<Load> loads = this.loadService.getLoads();
